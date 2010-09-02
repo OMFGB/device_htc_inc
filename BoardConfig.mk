@@ -49,17 +49,13 @@ WIFI_DRIVER_FW_AP_PATH      := "/system/etc/firmware/fw_bcm4329_apsta.bin"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
 WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
-#BOARD_USE_ECLAIR_PRELINK_MAP := true
 BOARD_USES_GENERIC_AUDIO := false
-#BOARD_USES_ECLAIR_LIBCAMERA := true
 
 BOARD_KERNEL_CMDLINE := no_console_suspend=1
 BOARD_KERNEL_BASE := 0x20000000
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-
-#BOARD_NO_CACHED_BUFFERS := true
 
 BOARD_VENDOR_QCOM_AMSS_VERSION := 3200
 
