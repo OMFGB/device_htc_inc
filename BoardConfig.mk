@@ -80,6 +80,7 @@ TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_htc
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 TARGET_PREBUILT_KERNEL := device/htc/inc/kernel
+TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/inc/recovery_kernel
 
 
 BOARD_HAS_DATADATA := true
