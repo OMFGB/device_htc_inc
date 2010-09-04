@@ -80,3 +80,14 @@ TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_htc
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 TARGET_PREBUILT_KERNEL := device/htc/inc/kernel
+
+
+BOARD_HAS_DATADATA := true
+BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
+BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
+BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
+BOARD_DATA_DEVICE := /dev/block/mmcblk0p1
+BOARD_DATA_FILESYSTEM := auto
+BOARD_CACHE_DEVICE := /dev/block/mmcblk0p2
+BOARD_CACHE_FILESYSTEM := auto
+BOARD_HAS_MTD_CACHE := true
