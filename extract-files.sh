@@ -32,6 +32,7 @@ adb pull /system/etc/agps_rm ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/firmware/Incredible_C_20100310_VZW_Neo_324016_v4_PMIC.acdb ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/firmware/Incredible_C_20100319_VZW_Neo_324016_v5_VZW.acdb ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/firmware/Incredible_C_20100319_VZW_Neo_324016_v8_default.acdb ../../../vendor/htc/$DEVICE/proprietary
+adb pull /system/etc/firmware/Incredible_C_20100921_VZW_Neo_324016_v10_default.acdb ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/firmware/default.acdb ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/firmware/default_PMIC.acdb ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/firmware/default_VZW.acdb ../../../vendor/htc/$DEVICE/proprietary
@@ -84,7 +85,7 @@ PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/libgps.so:obj/lib/libgps.so \\
     vendor/htc/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so
 
-# All the blobs necessary for passion
+# All the blobs necessary for inc
 PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/akmd:/system/bin/akmd \\
     vendor/htc/__DEVICE__/proprietary/snd:/system/bin/snd \\
@@ -99,7 +100,6 @@ PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/agps_rm:/system/etc/agps_rm \\
     vendor/htc/__DEVICE__/proprietary/Incredible_C_20100310_VZW_Neo_324016_v4_PMIC.acdb:/system/etc/firmware/Incredible_C_20100310_VZW_Neo_324016_v4_PMIC.acdb \\
     vendor/htc/__DEVICE__/proprietary/Incredible_C_20100319_VZW_Neo_324016_v5_VZW.acdb:/system/etc/firmware/Incredible_C_20100319_VZW_Neo_324016_v5_VZW.acdb \\
-    vendor/htc/__DEVICE__/proprietary/Incredible_C_20100319_VZW_Neo_324016_v8_default.acdb:/system/etc/firmware/Incredible_C_20100319_VZW_Neo_324016_v8_default.acdb \\
     vendor/htc/__DEVICE__/proprietary/default.acdb:/system/etc/firmware/default.acdb \\
     vendor/htc/__DEVICE__/proprietary/default_PMIC.acdb:/system/etc/firmware/default_PMIC.acdb \\
     vendor/htc/__DEVICE__/proprietary/default_VZW.acdb:/system/etc/firmware/default_VZW.acdb \\
@@ -126,10 +126,17 @@ PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/libspeech.so:/system/lib/libspeech.so \\
     vendor/htc/__DEVICE__/proprietary/incrediblec-keypad.kcm.bin:/system/usr/keychars/incrediblec-keypad.kcm.bin \\
     vendor/htc/__DEVICE__/proprietary/h2w_headset.kl:/system/usr/keylayout/h2w_headset.kl \\
-    vendor/htc/__DEVICE__/proprietary/incrediblec-keypad.kl:/system/usr/keylayout/incrediblec-keypad.kl
-
-
-
+    vendor/htc/__DEVICE__/proprietary/incrediblec-keypad.kl:/system/usr/keylayout/incrediblec-keypad.kl \\
 EOF
+
+FIRMWARE=../../../vendor/htc/inc/proprietary/Incredible_C_20100921_VZW_Neo_324016_v10_default.acdb
+BLOB=../../../vendor/htc/inc/inc-vendor-blobs.mk
+
+if [ -f $FIRMWARE ]
+	then 
+		echo '    vendor/htc/inc/proprietary/Incredible_C_20100921_VZW_Neo_324016_v10_default.acdb:/system/etc/firmware/Incredible_C_20100921_VZW_Neo_324016_v10_default.acdb' >> $BLOB
+	else 
+		echo '    vendor/htc/inc/proprietary/Incredible_C_20100319_VZW_Neo_324016_v8_default.acdb:/system/etc/firmware/Incredible_C_20100319_VZW_Neo_324016_v8_default.acdb' >> $BLOB
+fi
 
 ./setup-makefiles.sh
