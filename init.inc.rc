@@ -14,8 +14,9 @@ on init
     #
     umount /data
     devwait /dev/block/mmcblk0p1
-    mount ext3 /dev/block/mmcblk0p1 /data nosuid noatime nodiratime
-    exec /system/bin/e2fsck -p /dev/block/mmcblk0p1
+    mount yaffs2 mtd@datadata /data nosuid nodev
+    #mount ext3 /dev/block/mmcblk0p1 /data nosuid noatime nodiratime
+    #exec /system/bin/e2fsck -p /dev/block/mmcblk0p1
     chown system system /data
     chmod 0771 /data
 
@@ -82,7 +83,7 @@ on init
     # END umount/re-mount data
     #
 
-    mount yaffs2 mtd@datadata /data/data nosuid nodev
+    #mount yaffs2 mtd@datadata /data/data nosuid nodev
     chown system system /data/data
     chmod 0771 /data/data
 

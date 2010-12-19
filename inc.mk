@@ -117,5 +117,5 @@ $(call inherit-product, device/htc/common/common.mk)
 $(call inherit-product, build/target/product/full.mk)
 
 
-PRODUCT_NAME := generic_inc
+PRODUCT_NAME := full_inc
 PRODUCT_DEVICE := inc
