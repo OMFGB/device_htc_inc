@@ -23,7 +23,7 @@
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
-USE_CAMERA_STUB := true
+USE_CAMERA_STUB := false
 
 # inherit from the proprietary version
 -include vendor/htc/inc/BoardConfigVendor.mk
@@ -57,20 +57,39 @@ BOARD_KERNEL_BASE := 0x20000000
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-# For the FM Radio
+# Use RGB565 surfaces until userspace drivers are upgraded
+BOARD_NO_RGBX_8888 := true
+
 BOARD_HAVE_FM_RADIO := true
+BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 BOARD_VENDOR_QCOM_AMSS_VERSION := 3200
 
 BOARD_VENDOR_USE_AKMD := akm8973
 
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := inc
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
+
 BOARD_EGL_CFG := device/htc/inc/egl.cfg
 
 BOARD_USES_QCOM_LIBS := true
 
+BOARD_USE_OPENSSL_ENGINE := true
+
+BOARD_USE_FROYO_LIBCAMERA := true
+
 # For HTC's USB implementation
 BOARD_USE_HTC_USB_FUNCTION_SWITCH := true
 
+# cat /proc/mtd
+# dev:    size   erasesize  name
+# mtd0: 000a0000 00020000 "misc"
+# mtd1: 00480000 00020000 "recovery"
+# mtd2: 00300000 00020000 "boot"
+# mtd3: 0f800000 00020000 "system"
+# mtd4: 000a0000 00020000 "local"
+# mtd5: 02800000 00020000 "cache"
+# mtd6: 09500000 00020000 "datadata"
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00300000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00480000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0f800000   # limited so we enforce room to grow

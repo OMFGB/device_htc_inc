@@ -15,7 +15,7 @@
 #
 
 #
-# This is the product configuration for a generic GSM passion,
+# This is the product configuration for a generic incredible,
 # not specialized for any geography.
 #
 
@@ -24,15 +24,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us.mk)
 
-## (1) First, the most specific values, i.e. the aspects that are specific to GSM
-
 PRODUCT_COPY_FILES += \
     device/htc/inc/init.inc.rc:root/init.inc.rc
 
-## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/inc/inc-vendor.mk)
 
-## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.com.android.wifi-watchlist=GoogleGuest \
 	ro.error.receiver.system.apps=com.google.android.feedback \
@@ -87,14 +83,19 @@ PRODUCT_COPY_FILES += \
     device/htc/inc/bcm4329.ko:system/lib/modules/bcm4329.ko
 
 PRODUCT_PACKAGES += \
+    librs_jni \
     sensors.inc \
     lights.inc \
-    librs_jni
+    gralloc.qsd8k \
+    copybit.qsd8k \
+    gps.inc \
+    libOmxCore \
+    libOmxVidEnc
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# Passion uses high-density artwork where available
+# Incredible uses high-density artwork where available
 PRODUCT_LOCALES += hdpi
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -110,6 +111,9 @@ $(call inherit-product-if-exists, vendor/htc/inc/inc-vendor.mk)
 
 # media profiles and capabilities spec
 $(call inherit-product, device/htc/inc/media_a1026.mk)
+
+# Broadcom FM radio
+$(call inherit-product, device/htc/common/fm_radio.mk)
 
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
