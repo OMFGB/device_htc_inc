@@ -147,4 +147,7 @@
     <integer-array name="config_keyboardTapVibePattern">
         <item>30</item>
     </integer-array>
+
+	<!-- Try some Electron Beam on INC. -->
+	<bool name="config_animateScreenLights">false</bool>
 </resources>
