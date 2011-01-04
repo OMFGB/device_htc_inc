@@ -78,7 +78,7 @@ PRODUCT_COPY_FILES += \
     device/htc/inc/apns-conf.xml:system/etc/apns-conf.xml
 
 PRODUCT_COPY_FILES += \
-    device/htc/inc/bcm4329.ko:system/lib/modules/bcm4329.ko
+    device/htc/inc/modules/bcm4329.ko:system/lib/modules/bcm4329.ko
 
 PRODUCT_PACKAGES += \
     librs_jni \
