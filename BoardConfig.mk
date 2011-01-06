@@ -76,9 +76,6 @@ BOARD_USES_QCOM_LIBS := true
 
 BOARD_USE_FROYO_LIBCAMERA := true
 
-# For HTC's USB implementation
-BOARD_USE_HTC_USB_FUNCTION_SWITCH := true
-
 # cat /proc/mtd
 # dev:    size   erasesize  name
 # mtd0: 000a0000 00020000 "misc"
@@ -94,11 +91,9 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0f800000   # limited so we enforce room to
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x09500000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 TARGET_PREBUILT_KERNEL := device/htc/inc/kernel
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/inc/recovery_kernel
-
 
 BOARD_HAS_DATADATA := true
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
