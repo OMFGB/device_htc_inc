@@ -110,9 +110,6 @@ $(call inherit-product-if-exists, vendor/htc/inc/inc-vendor.mk)
 # media profiles and capabilities spec
 $(call inherit-product, device/htc/inc/media_a1026.mk)
 
-# Broadcom FM radio
-$(call inherit-product, device/htc/common/fm_radio.mk)
-
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
 
