@@ -103,4 +103,4 @@ BOARD_DATA_DEVICE := /dev/block/mmcblk0p1
 BOARD_DATA_FILESYSTEM := auto
 BOARD_CACHE_DEVICE := /dev/block/mmcblk0p2
 BOARD_CACHE_FILESYSTEM := auto
-BOARD_HAS_MTD_CACHE := true
+
