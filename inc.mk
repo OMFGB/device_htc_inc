@@ -88,8 +88,7 @@ PRODUCT_PACKAGES += \
     copybit.qsd8k \
     gps.inc \
     libOmxCore \
-    libOmxVidEnc \
-    libOmxVdec
+    libOmxVidEnc
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
